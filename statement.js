@@ -22,11 +22,11 @@ function statement(invoice, plays) {
   result += `적립 포인트: ${volumeCredits}점\n`;
   return result;
 
-  function volumeCreditsFor(perf) {
+  function volumeCreditsFor(aPerformence) {
     let volumeCredits = 0;
-    volumeCredits += Math.max(perf.audience - 30, 0);
-    if ("comedy" === playFor(perf).type)
-      volumeCredits += Math.floor(perf.audience / 5);
+    volumeCredits += Math.max(aPerformence.audience - 30, 0);
+    if ("comedy" === playFor(aPerformence).type)
+      volumeCredits += Math.floor(aPerformence.audience / 5);
     return volumeCredits;
   }
 
