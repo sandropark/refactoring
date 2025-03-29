@@ -1,5 +1,5 @@
-const statement = require("./statement");
-const fs = require("fs");
+import statement from "./statement";
+import fs from "fs";
 
 const invoices = JSON.parse(fs.readFileSync("invoices.json", "utf8"));
 const plays = JSON.parse(fs.readFileSync("plays.json", "utf8"));
