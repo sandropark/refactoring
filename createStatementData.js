@@ -1,10 +1,10 @@
 export default function createStatementData(invoice, plays) {
-  const statementData = {};
-  statementData.customer = invoice.customer;
-  statementData.performances = invoice.performances.map(enrichPerformance);
-  statementData.totalAmount = totalAmount(statementData);
-  statementData.totalVolumeCredits = totalVolumeCredits(statementData);
-  return statementData;
+  const result = {};
+  result.customer = invoice.customer;
+  result.performances = invoice.performances.map(enrichPerformance);
+  result.totalAmount = totalAmount(result);
+  result.totalVolumeCredits = totalVolumeCredits(result);
+  return result;
 
   function enrichPerformance(aPerformance) {
     const result = Object.assign({}, aPerformance);
@@ -23,10 +23,10 @@ export default function createStatementData(invoice, plays) {
   }
 
   function volumeCreditsFor(aPerformence) {
-    let volumeCredits = 0;
-    volumeCredits += Math.max(aPerformence.audience - 30, 0);
-    if ("comedy" === aPerformence.play.type) volumeCredits += Math.floor(aPerformence.audience / 5);
-    return volumeCredits;
+    let result = 0;
+    result += Math.max(aPerformence.audience - 30, 0);
+    if ("comedy" === aPerformence.play.type) result += Math.floor(aPerformence.audience / 5);
+    return result;
   }
 
   function amountFor(aPerformance) {
